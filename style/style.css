@@ -16,6 +16,7 @@ body {
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--azul-medio);
   color: var(--blanco);
   padding: 1.5rem;
@@ -46,19 +47,42 @@ header {
 }
 
 nav {
-  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
 }
 
 nav a {
+  font-size: 20px;
   color: var(--blanco);
   text-decoration: none;
   margin: 0 1rem;
   font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--blanco);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #d0faff;
+  text-decoration: none;
 }
+
+nav a:hover::after {
+  transform: scaleX(1); 
+}
+
 
 h1 {
   margin-top: 0;
@@ -90,4 +114,33 @@ footer {
   max-width: 1200px;
   margin: auto;
   font-size: 0.9rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 250px;       /* Puedes ajustar el ancho como prefieras */
+  height: 100vh;      /* Ocupa toda la altura de la ventana */
+}
+
+aside img {
+  flex-grow: 1;       /* Hace que las imágenes crezcan y ocupen todo el espacio disponible */
+  object-fit: cover;  /* Asegura que la imagen cubra todo el espacio sin deformarse */
+  opacity: 0.8;
+  transition: 0.5s ease;
+  width: 100%;        /* Ocupa todo el ancho del aside */
+  height: 100%;       /* Las imágenes ocupan toda la altura disponible */
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
+aside img:hover {
+  opacity: 1;
+  filter: contrast(120%);
+  transform: scale(1.1);   /* El efecto de agrandamiento al hacer hover */
 }
