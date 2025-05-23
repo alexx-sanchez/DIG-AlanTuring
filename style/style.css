@@ -60,15 +60,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-main {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-  background-color: var(--blanco);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
 h1 {
   margin-top: 0;
 }
@@ -81,5 +72,22 @@ footer {
   text-align: center;
   padding: 1rem;
   background-color: var(--gris);
+  font-size: 0.9rem;
+}
+
+
+.footer-inclinado {
+  position: relative;
+  background: var(--azul-medio);
+  color: var(--blanco);
+  padding: 4rem 2rem 2rem;
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+  text-align: right;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: auto;
   font-size: 0.9rem;
 }
