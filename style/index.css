@@ -1,4 +1,4 @@
-#objetivo {
+#objetivoODS {
 background-image: url('/img/objetivo.jpg');
 background-size: cover;
 background-position: center;
@@ -9,15 +9,15 @@ overflow: hidden;
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: center;
-height: 500px;
+align-items: flex-start;
+height: 300px;
 width: 100%;
-max-width: 60%;
+max-width: 50%;
 margin: 2rem auto;
 text-align: center;
 }
 
-#objetivo::before {
+#objetivoODS::before {
 content: "";
 position: absolute;
 top: 0;
@@ -29,11 +29,74 @@ z-index: 0;
 border-radius: 12px;
 }
 
-#objetivo h2,
-#objetivo p {
+#objetivoODS h2,
+#objetivoODS p {
 position: relative;
 z-index: 1;
 color: var(--blanco);
 margin: 0.5rem 0;
 padding: 0 1rem;
+}
+
+
+
+#objetivoGRUPO {
+background-image: url('/img/grupo.jpg');
+background-size: cover;
+background-position: center;
+position: relative;
+padding: 2rem;
+border-radius: 12px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+height: auto;
+width: 80%;
+max-width: 50%;
+margin: 2rem auto;
+text-align: left;
+}
+
+#objetivoGRUPO::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.4);
+z-index: 0;
+border-radius: 12px;
+}
+
+#objetivoGRUPO h2,
+#objetivoGRUPO h3,
+#objetivoGRUPO p {
+position: relative;
+z-index: 1;
+color: var(--blanco);
+margin: 0.5rem 0;
+padding-left: 1rem;
+padding-right: 1rem;
+max-width: 900px;
+}
+
+#objetivoGRUPO ul {
+list-style: none;
+padding-left: 2rem;
+position: relative;
+z-index: 1;
+color: var(--blanco);
+text-align: left;
+max-width: 900px;
+margin-left: 1rem;
+}
+
+#objetivoGRUPO ul li {
+margin-bottom: 0.75rem;
+padding-left: 1rem;
+text-indent: -1rem;
+line-height: 1.6;
 }
