@@ -187,3 +187,127 @@ footer {
     transform: scale(1.05);
 }
 
+#objetivoODS {
+    background-image: url('/img/agua1.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 300px;
+    width: 100%;
+    max-width: 70%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+#objetivoODS::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    border-radius: 12px;
+}
+
+#objetivoODS h2,
+#objetivoODS p {
+    position: relative;
+    z-index: 1;
+    color: var(--blanco);
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+}
+
+
+
+#objetivoGRUPO {
+    background-image: url('/img/agua-cultivos.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 80%;
+    max-width: 70%;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+#objetivoGRUPO::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    border-radius: 12px;
+}
+
+#objetivoGRUPO h2,
+#objetivoGRUPO h3,
+#objetivoGRUPO p {
+    position: relative;
+    z-index: 1;
+    color: var(--blanco);
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 900px;
+}
+
+#objetivoGRUPO ul {
+    list-style: none;
+    padding-left: 2rem;
+    position: relative;
+    z-index: 1;
+    color: var(--blanco);
+    text-align: left;
+    max-width: 900px;
+    margin-left: 1rem;
+}
+
+#objetivoGRUPO ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    text-indent: -1rem;
+    line-height: 1.6;
+}
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 33%; /* Menor altura, sigue siendo responsivo */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 55%; /* Más estrecho */
+    margin: 2rem auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
