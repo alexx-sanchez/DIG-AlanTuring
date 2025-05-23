@@ -1,0 +1,67 @@
+.contenedor-datos {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-datos p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.filtros {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.filtros h2 {
+    margin-bottom: 15px;
+}
+
+.filtros form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.filtros label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.filtros select, .filtros button {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filtros button {
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtros button:hover {
+    background-color: #005fa3;
+}
+
+.graficos {
+    margin-top: 40px;
+}
+
+.grafico-placeholder {
+    background-color: #e6e6e6;
+    border: 2px dashed #aaa;
+    padding: 40px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}

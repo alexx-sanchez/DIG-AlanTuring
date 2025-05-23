@@ -3,21 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ODS 6 - Agua Limpia y Saneamiento</title>
+    <title>Explora los Datos - ODS 6</title>
     <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/datos.css">
 </head>
 
 <body>
+
     <div id="header"></div>
 
-    <main>
-        <h2>Página de inicio</h2>
-        <p>Contenido principal...</p>
+    <main class="contenedor-datos">
+
+        <!-- Introducción -->
+        <section class="intro-datos">
+            <h1>Explora los Datos</h1>
+            <p>
+                Aquí podrás visualizar datos relacionados con el Objetivo de Desarrollo Sostenible 6: Agua limpia y saneamiento.
+                Los datos provienen de fuentes oficiales como la ONU, la OMS y otras organizaciones internacionales.
+                Estas visualizaciones nos ayudarán a comprender mejor la situación global y regional respecto al acceso al agua y al saneamiento.
+            </p>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filtros">
+            <h2>Filtrar datos</h2>
+            <form id="filtro-form">
+                <label for="pais">País:</label>
+                <select id="pais" name="pais">
+                    <option value="">Todos</option>
+                    <option value="España">España</option>
+                    <option value="México">México</option>
+                    <option value="Colombia">Colombia</option>
+                    <!-- Añadir más países -->
+                </select>
+
+                <label for="anio">Año:</label>
+                <select id="anio" name="anio">
+                    <option value="">Todos</option>
+                    <option value="2015">2015</option>
+                    <option value="2020">2020</option>
+                    <option value="2023">2023</option>
+                    <!-- Añadir más años -->
+                </select>
+
+                <label for="indicador">Indicador:</label>
+                <select id="indicador" name="indicador">
+                    <option value="">Todos</option>
+                    <option value="agua_potable">Acceso a agua potable</option>
+                    <option value="saneamiento">Acceso a saneamiento</option>
+                    <option value="tratamiento">Tratamiento de aguas residuales</option>
+                </select>
+
+                <button type="submit">Aplicar</button>
+            </form>
+        </section>
+
+        <!-- Espacios reservados para gráficos -->
+        <section class="graficos">
+            <h2>Visualizaciones</h2>
+
+            <div class="grafico-placeholder">
+                <p>Aquí se insertará el primer gráfico (barras, líneas, etc.)</p>
+            </div>
+
+            <div class="grafico-placeholder">
+                <p>Aquí se insertará el segundo gráfico (mapa, por ejemplo)</p>
+            </div>
+
+            <div class="grafico-placeholder">
+                <p>Aquí se insertará el tercer gráfico (línea de tiempo, etc.)</p>
+            </div>
+        </section>
+
     </main>
 
     <div id="footer"></div>
 
     <script src="js/include.js"></script>
+
 </body>
 
 </html>
