@@ -177,3 +177,12 @@ footer {
 .btn-github:hover {
     background-color: #555;
 }
+
+/* Animación suave al pasar el ratón por miembros del equipo o imágenes */
+.personas article, .imagen-boton {
+    transition: transform 0.3s ease;
+}
+
+.personas article:hover, .imagen-boton:hover {
+    transform: scale(1.05);
+}
