@@ -11,57 +11,63 @@
 <body>
 
     <div id="header"></div>
+    <!-- Introducción -->
+    <section class="intro-datos">
+        <h1>Explora los Datos</h1>
+        <p>
+            Aquí podrás visualizar datos relacionados con el Objetivo de Desarrollo Sostenible 6: Agua limpia y
+            saneamiento.
+            Los datos provienen de fuentes oficiales y otras organizaciones.
+            Estas visualizaciones nos ayudarán a comprender mejor la situación global y regional respecto al acceso al
+            agua y al saneamiento.
+        </p>
+    </section>
 
     <main class="contenedor-datos">
-
-        <!-- Introducción -->
-        <section class="intro-datos">
-            <h1>Explora los Datos</h1>
-            <p>
-                Aquí podrás visualizar datos relacionados con el Objetivo de Desarrollo Sostenible 6: Agua limpia y saneamiento.
-                Los datos provienen de fuentes oficiales y otras organizaciones.
-                Estas visualizaciones nos ayudarán a comprender mejor la situación global y regional respecto al acceso al agua y al saneamiento.
-            </p>
-        </section>
-
         <!-- Filtros -->
         <section class="filtros">
-            <h2>Filtrar datos</h2>
-            <form id="filtro-form">
-                <label for="pais">País:</label>
-                <select id="pais" name="pais">
-                    <option value="">Todos</option>
-                    <option value="España">Catalunya</option>
-                    <!-- Añadir más países -->
-                </select>
+            <div class="form_estilo">
+                <h2>Filtrar datos</h2>
+                <form id="filtro-form">
+                    <div class="form-group">
+                        <label for="pais">País:</label>
+                        <select id="pais" name="pais">
+                            <option value="">Todos</option>
+                            <option value="España">Catalunya</option>
+                        </select>
+                    </div>
 
-                <label for="anio">Año:</label>
-                <select id="anio" name="anio">
-                    <option value="">Todos</option>
-                    <option value="2015">2013</option>
-                    <option value="2015">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2015">2016</option>
-                    <option value="2015">2017</option>
-                    <option value="2015">2018</option>
-                    <option value="2015">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2020">2021</option>
-                    <option value="2020">2022</option>
-                    <option value="2023">2023</option>
-                    <!-- Añadir más años -->
-                </select>
+                    <div class="form-group">
+                        <label for="anio">Año:</label>
+                        <select id="anio" name="anio">
+                            <option value="">Todos</option>
+                            <option value="2015">2013</option>
+                            <option value="2015">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2015">2016</option>
+                            <option value="2015">2017</option>
+                            <option value="2015">2018</option>
+                            <option value="2015">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2020">2021</option>
+                            <option value="2020">2022</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
 
-                <label for="indicador">Indicador:</label>
-                <select id="indicador" name="indicador">
-                    <option value="">Todos</option>
-                    <option value="agua_potable">Acceso a agua potable</option>
-                    <option value="saneamiento">Acceso a saneamiento</option>
-                    <option value="tratamiento">Tratamiento de aguas residuales</option>
-                </select>
+                    <div class="form-group">
+                        <label for="indicador">Indicador:</label>
+                        <select id="indicador" name="indicador">
+                            <option value="">Todos</option>
+                            <option value="agua_potable">Acceso a agua potable</option>
+                            <option value="saneamiento">Acceso a saneamiento</option>
+                            <option value="tratamiento">Tratamiento de aguas residuales</option>
+                        </select>
+                    </div>
 
-                <button type="submit">Aplicar</button>
-            </form>
+                    <button type="submit">Aplicar</button>
+                </form>
+            </div>
         </section>
 
         <!-- Espacios reservados para gráficos -->
