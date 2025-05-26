@@ -1,6 +1,7 @@
 <?php
 
 /**PETICION GET POR ANY - MES Y PROVINCIA*/
+/**data.php?any=2005&mes=4&provincia=Tarragona */
 $db = new SQLite3('database.db');
 
 // Validar parámetros
