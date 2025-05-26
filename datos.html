@@ -11,15 +11,14 @@
 <body>
 
     <div id="header"></div>
+
     <!-- Introducción -->
     <section class="intro-datos">
         <h1>Explora los Datos</h1>
         <p>
-            Aquí podrás visualizar datos relacionados con el Objetivo de Desarrollo Sostenible 6: Agua limpia y
-            saneamiento.
+            Aquí podrás visualizar datos relacionados con el Objetivo de Desarrollo Sostenible 6: Agua limpia y saneamiento.
             Los datos provienen de fuentes oficiales y otras organizaciones.
-            Estas visualizaciones nos ayudarán a comprender mejor la situación global y regional respecto al acceso al
-            agua y al saneamiento.
+            Estas visualizaciones nos ayudarán a comprender mejor la situación global y regional respecto al acceso al agua y al saneamiento.
         </p>
     </section>
 
@@ -36,7 +35,6 @@
                             <option value="Girona">Girona</option>
                             <option value="Lleida">Lleida</option>
                             <option value="Tarragona">Tarragona</option>
-
                         </select>
                     </div>
 
@@ -75,7 +73,6 @@
                             <option value="10">Octubre</option>
                             <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
-
                         </select>
                     </div>
 
@@ -84,29 +81,29 @@
             </div>
         </section>
 
-        <!-- Espacios reservados para gráficos -->
+        <!-- Visualizaciones -->
         <section class="graficos">
             <h2>Visualizaciones</h2>
 
-            <div class="grafico-placeholder">
-                <p>Aquí se insertará el primer gráfico (barras, líneas, etc.)</p>
+            <div class="grafico-placeholder" id="grafico-1">
+                <canvas id="chart1"></canvas>
             </div>
 
-            <div class="grafico-placeholder">
-                <p>Aquí se insertará el segundo gráfico (mapa, por ejemplo)</p>
+            <div class="grafico-placeholder" id="grafico-2">
+                <canvas id="chart2"></canvas>
             </div>
 
-            <div class="grafico-placeholder">
-                <p>Aquí se insertará el tercer gráfico (línea de tiempo, etc.)</p>
+            <div class="grafico-placeholder" id="grafico-3">
+                <canvas id="chart3"></canvas>
             </div>
         </section>
-
     </main>
 
     <div id="footer"></div>
 
     <script src="js/include.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/datos.js"></script>
 </body>
 
 </html>

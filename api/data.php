@@ -1,7 +1,5 @@
 <?php
 
-/**PETICION GET POR ANY - MES Y PROVINCIA*/
-/**data.php?any=2005&mes=4&provincia=Tarragona */
 $db = new SQLite3('database.db');
 
 // Validar parámetros
@@ -35,5 +33,6 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 // Devolver en JSON
 header('Content-Type: application/json');
 echo json_encode($data);
+
 
 ?>
