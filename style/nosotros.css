@@ -1,0 +1,194 @@
+:root {
+  --azul-claro: #e0f7fa;
+  --azul-medio: #00bcd4;
+  --azul-oscuro: #00796b;
+  --blanco: #ffffff;
+  --gris: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--azul-claro);
+  color: var(--azul-oscuro);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: var(--azul-medio);
+  color: var(--blanco);
+  padding: 1.5rem;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: white;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-nav {
+  flex: 1;
+  text-align: center;
+}
+
+.titulo-nav h1 {
+  margin: 0;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--gris);
+  font-size: 0.9rem;
+}
+
+.figure5 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.figure5 .titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    text-align: center;
+}
+
+/* Personas (miembros del equipo) */
+.personas {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    justify-content: center; 
+}
+
+.personas article {
+    text-align: center;
+    transition: transform 0.3s ease; /* Transición suave en todo el artículo */
+}
+
+/* Efecto de rotación solo en la imagen al hacer hover sobre el artículo */
+.personas article:hover img {
+    transform: rotate(360deg); /* Rota solo la imagen */
+}
+
+/* Imagen circular de los miembros del equipo */
+.figure5 img {
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+    transition: transform 0.5s ease; /* Transición suave para la rotación */
+}
+
+/* Ampliación del artículo cuando se hace hover */
+.personas article:hover {
+    transform: scale(1.05); /* Aumenta un poco el tamaño del artículo */
+}
+
+.personas p {
+    margin: 0; 
+    font-size: 14px; 
+    color: var(--azul-oscuro);
+    text-align: center;
+}
+
+/* Botón de GitHub */
+.btn-github {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-github:hover {
+    background-color: #555;
+}
+
+/* Sección de imágenes con botones */
+.imagenes-con-boton {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imagen-boton {
+    position: relative;
+    display: inline-block;
+}
+
+.imagen-boton img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.boton-sobre-imagen {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-sobre-imagen:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
