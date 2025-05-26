@@ -1,0 +1,166 @@
+:root {
+    --azul-claro: #e0f7fa;
+    --azul-medio: #00bcd4;
+    --azul-oscuro: #00796b;
+    --blanco: #ffffff;
+    --gris: #f5f5f5;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--azul-claro);
+    color: var(--azul-oscuro);
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    background-color: var(--azul-medio);
+    color: var(--blanco);
+    padding: 1.5rem;
+  }
+  
+  .logo {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: white;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .titulo-nav {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .titulo-nav h1 {
+    margin: 0;
+  }
+  
+  nav {
+    margin-top: 0.5rem;
+  }
+  
+  nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--gris);
+    font-size: 0.9rem;
+  }
+  
+  .figure5 {
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+      gap: 20px; 
+  }
+  
+  .figure5 .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--azul-oscuro);
+      text-align: center;
+  }
+  
+  .informacion1{
+    display: flex;
+  }
+  
+  p{
+    margin-right: 100px;
+  }
+  
+  .destacados {
+    width: 260px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .destacados h3 {
+    border-top: 5px solid #c00;
+    padding-top: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .destacados ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .destacados li {
+    border-top: 1px solid #eee;
+    padding: 0.8rem 0;
+  }
+  
+  .destacados li:first-of-type {
+    border-top: none;
+  }
+  
+  .destacados a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+  }
+  
+  .destacados a:hover {
+    text-decoration: underline;
+  }
+  
+  .detalles {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+  }
+  
+  .icono-pdf {
+    width: 18px;
+  }
+  
+  .externo {
+    font-size: 1.1rem;
+  }
+  
