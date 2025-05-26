@@ -192,3 +192,78 @@ footer {
 .boton-sobre-imagen:hover {
     background-color: rgba(0, 123, 255, 1);
 }
+
+.informacion1{
+  display: flex;
+}
+
+p{margin-right: 100px;}
+
+.destacados {
+  width: 300px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  /* No hay margen inferior para evitar espacio con el bloque siguiente */
+  margin-bottom: 0;
+  padding: 1rem;
+}
+
+.destacados h3 {
+  border-top: 5px solid #cc0000;
+  padding-top: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.destacados ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.destacados li {
+  border-top: 1px solid #eee;
+  padding: 0.8rem 0;
+  /* Este margen da aire entre elementos */
+  margin-bottom: 1rem;
+}
+
+/* ✅ Elimina margen y borde superior solo del primero */
+.destacados li:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+
+/* ✅ Elimina margen inferior del último <li> */
+.destacados li:last-of-type {
+  margin-bottom: 0;
+}
+
+.destacados a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+.destacados a:hover {
+  text-decoration: underline;
+}
+
+.detalles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+.icono-pdf {
+  width: 18px;
+}
+
+.externo {
+  font-size: 1.1rem;
+}
