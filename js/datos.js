@@ -1,6 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('filtro-form');
 
+  // Configuración predeterminada de los filtros
+  const provincia = 'Barcelona';
+  const anyo = ''; // Todos
+  const mes = '1'; // Enero
+
+  // Preparar parámetros GET para la llamada PHP
+  const params = new URLSearchParams({
+    any: anyo,
+    mes: mes,
+    provincia: provincia
+  });
+
+  // Hacer la solicitud automáticamente al cargar la página
+  fetchData(params);
+
+  // Cuando el usuario aplica los filtros
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -15,22 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
       provincia: provincia
     });
 
-    try {
-      const response = await fetch(`api/data.php?${params.toString()}`);
-      if (!response.ok) throw new Error('Error en la petición');
+    fetchData(params);
+  });
+});
 
-      const data = await response.json();
-
+// Función para obtener y mostrar los datos
+function fetchData(params) {
+  fetch(`api/data.php?${params.toString()}`)
+    .then(response => response.json())
+    .then(data => {
       mostrarDatos(data);
-
-    } catch (error) {
+    })
+    .catch(error => {
       console.error('Error:', error);
       document.getElementById('grafico-1').innerHTML = '<p>Error cargando datos.</p>';
       document.getElementById('grafico-2').innerHTML = '';
       document.getElementById('grafico-3').innerHTML = '';
-    }
-  });
-});
+    });
+}
 
 let chart1, chart2, chart3;
 
@@ -43,7 +61,7 @@ function mostrarDatos(data) {
   }
 
   // Aquí cambias 'ConsumoAgua' por el nombre real de tu campo numérico
-  const campoNumerico = 'ConsumoAgua';
+  const campoNumerico = 'Consumo_mensual';
 
   // Gráfico 1: barras consumo por mes
   const meses = data.map(d => d.Mes);
@@ -99,7 +117,7 @@ function mostrarDatos(data) {
   });
 
   // Gráfico 3: línea evolución consumo por mes (de 1 a 12)
-  const mesesOrdenados = [1,2,3,4,5,6,7,8,9,10,11,12];
+  const mesesOrdenados = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const consumoPorMes = mesesOrdenados.map(mes => {
     const item = data.find(d => Number(d.Mes) === mes);
     return item ? Number(item[campoNumerico] || 0) : 0;
