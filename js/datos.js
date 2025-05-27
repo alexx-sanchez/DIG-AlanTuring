@@ -1,148 +1,187 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('filtro-form');
+  // FORMULARIO CONSUMO
+  const formConsumo = document.getElementById('filtro-consumo');
+  const selectProvinciaConsumo = document.getElementById('provincia-consumo');
+  const selectAnyoConsumo = document.getElementById('año-consumo');
 
-  // Configuración predeterminada de los filtros
-  const provincia = 'Barcelona';
-  const anyo = ''; // Todos
-  const mes = '1'; // Enero
+  // FORMULARIO EMBALSADO
+  const formEmbalsado = document.getElementById('filtro-embalsado');
+  const selectProvinciaEmbalsado = document.getElementById('provincia-embalsado');
+  const selectAnyoEmbalsado = document.getElementById('año-embalsado');
+  const selectMesEmbalsado = document.getElementById('mes-embalsado');
 
-  // Preparar parámetros GET para la llamada PHP
-  const params = new URLSearchParams({
-    any: anyo,
-    mes: mes,
-    provincia: provincia
+  // Cargar inicial datos
+  cargarConsumo({ provincia: 'Barcelona', anyo: '' });
+  cargarEmbalsado({ provincia: 'Barcelona', anyo: '', mes: '' });
+
+  // Evento submit consumo
+  formConsumo.addEventListener('submit', e => {
+    e.preventDefault();
+    const provincia = selectProvinciaConsumo.value;
+    const anyo = selectAnyoConsumo.value;
+    cargarConsumo({ provincia, anyo });
   });
 
-  // Hacer la solicitud automáticamente al cargar la página
-  fetchData(params);
-
-  // Cuando el usuario aplica los filtros
-  form.addEventListener('submit', async (e) => {
+  // Evento submit embalsado
+  formEmbalsado.addEventListener('submit', e => {
     e.preventDefault();
-
-    const provincia = form.provincia.value;
-    const anyo = form.año.value || '';
-    const mes = form.mes.value || '';
-
-    // Preparar parámetros GET para la llamada PHP
-    const params = new URLSearchParams({
-      any: anyo,
-      mes: mes,
-      provincia: provincia
-    });
-
-    fetchData(params);
+    const provincia = selectProvinciaEmbalsado.value;
+    const anyo = selectAnyoEmbalsado.value;
+    const mes = selectMesEmbalsado.value;
+    cargarEmbalsado({ provincia, anyo, mes });
   });
 });
 
-// Función para obtener y mostrar los datos
-function fetchData(params) {
+let chart1, chart2;
+
+function cargarConsumo({ provincia, anyo }) {
+  const params = new URLSearchParams();
+  if (anyo) params.append('any', anyo);
+  params.append('provincia', provincia);
+
   fetch(`api/data.php?${params.toString()}`)
-    .then(response => response.json())
-    .then(data => {
-      mostrarDatos(data);
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      return res.json();
     })
-    .catch(error => {
-      console.error('Error:', error);
-      document.getElementById('grafico-1').innerHTML = '<p>Error cargando datos.</p>';
-      document.getElementById('grafico-2').innerHTML = '';
-      document.getElementById('grafico-3').innerHTML = '';
+    .then(data => {
+      mostrarConsumo(data, anyo, provincia);
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('grafico-1').innerHTML = `<p>Error cargando datos: ${err.message}</p>`;
     });
 }
 
-let chart1, chart2, chart3;
+function cargarEmbalsado({ provincia, anyo, mes }) {
+  const params = new URLSearchParams();
+  if (anyo) params.append('any', anyo);
+  if (mes) params.append('mes', mes);
+  params.append('provincia', provincia);
 
-function mostrarDatos(data) {
-  if (data.length === 0) {
+  fetch(`api/data.php?${params.toString()}`)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      mostrarEmbalsado(data, anyo, mes, provincia);
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('grafico-2').innerHTML = `<p>Error cargando datos: ${err.message}</p>`;
+    });
+}
+
+function mostrarConsumo(data, anyoSeleccionado, provinciaSeleccionada) {
+  if (!data || data.length === 0) {
     document.getElementById('grafico-1').innerHTML = '<p>No hay datos para esos filtros.</p>';
-    document.getElementById('grafico-2').innerHTML = '';
-    document.getElementById('grafico-3').innerHTML = '';
     return;
   }
-
-  // Aquí cambias 'ConsumoAgua' por el nombre real de tu campo numérico
-  const campoNumerico = 'Consumo_mensual';
-
-  // Gráfico 1: barras consumo por mes
-  const meses = data.map(d => d.Mes);
-  const consumo = data.map(d => Number(d[campoNumerico] || 0));
-
-  const ctx1 = document.getElementById('chart1').getContext('2d');
+  const ctx = document.getElementById('chart1').getContext('2d');
   if (chart1) chart1.destroy();
 
-  chart1 = new Chart(ctx1, {
+  // Agrupar consumo total por año
+  const consumoPorAño = {};
+  data.forEach(d => {
+    const anyo = d.Any;
+    consumoPorAño[anyo] = (consumoPorAño[anyo] || 0) + Number(d.Consumo_mensual || 0);
+  });
+
+  const años = Object.keys(consumoPorAño).sort();
+  const consumos = años.map(a => consumoPorAño[a]);
+
+  chart1 = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: meses,
+      labels: años,
       datasets: [{
-        label: 'Consumo de Agua',
-        data: consumo,
+        label: `Consumo Total por Año - ${provinciaSeleccionada}`,
+        data: consumos,
         backgroundColor: 'rgba(54, 162, 235, 0.6)'
       }]
     },
     options: {
       responsive: true,
-      scales: {
-        y: { beginAtZero: true }
-      }
+      scales: { y: { beginAtZero: true } }
     }
   });
+}
 
-  // Gráfico 2: consumo total por provincia
-  const provincias = [...new Set(data.map(d => d.Provincia))];
-  const consumoPorProvincia = provincias.map(p => {
-    return data.filter(d => d.Provincia === p)
-      .reduce((sum, item) => sum + Number(item[campoNumerico] || 0), 0);
-  });
-
-  const ctx2 = document.getElementById('chart2').getContext('2d');
+function mostrarEmbalsado(data, anyoSeleccionado, mesSeleccionado, provinciaSeleccionada) {
+  if (!data || data.length === 0) {
+    document.getElementById('grafico-2').innerHTML = '<p>No hay datos para esos filtros.</p>';
+    return;
+  }
+  const ctx = document.getElementById('chart2').getContext('2d');
   if (chart2) chart2.destroy();
 
-  chart2 = new Chart(ctx2, {
-    type: 'pie',
-    data: {
-      labels: provincias,
-      datasets: [{
-        label: 'Consumo Agua por Provincia',
-        data: consumoPorProvincia,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)'
-        ]
-      }]
-    },
-    options: { responsive: true }
-  });
+  // Agrupar volumen embalsado por mes (si hay varios) o solo mostrar total si un mes específico
+  if (mesSeleccionado) {
+    // Mostrar solo el volumen del mes seleccionado
+    const totalVolumen = data.reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
 
-  // Gráfico 3: línea evolución consumo por mes (de 1 a 12)
-  const mesesOrdenados = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const consumoPorMes = mesesOrdenados.map(mes => {
-    const item = data.find(d => Number(d.Mes) === mes);
-    return item ? Number(item[campoNumerico] || 0) : 0;
-  });
-
-  const ctx3 = document.getElementById('chart3').getContext('2d');
-  if (chart3) chart3.destroy();
-
-  chart3 = new Chart(ctx3, {
-    type: 'line',
-    data: {
-      labels: mesesOrdenados.map(m => `Mes ${m}`),
-      datasets: [{
-        label: 'Evolución Consumo Agua',
-        data: consumoPorMes,
-        fill: false,
-        borderColor: 'rgba(255, 159, 64, 1)',
-        tension: 0.1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true }
+    chart2 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [`${provinciaSeleccionada} - ${anyoSeleccionado} - Mes ${mesSeleccionado}`],
+        datasets: [{
+          label: 'Volumen Embalsado',
+          data: [totalVolumen],
+          backgroundColor: 'rgba(153, 102, 255, 0.6)'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true } }
       }
+    });
+  } else {
+    // Mostrar volumen embalsado por mes para el año seleccionado y provincia
+    // Si no hay año seleccionado, mostrar total por año
+
+    const meses = [...new Set(data.map(d => Number(d.Mes)))].sort((a,b) => a-b);
+    if (meses.length === 0) {
+      // Sin meses, sumar total y mostrar solo una barra
+      const totalVolumen = data.reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
+      chart2 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [`${provinciaSeleccionada} - ${anyoSeleccionado || 'Todos los años'}`],
+          datasets: [{
+            label: 'Volumen Embalsado Total',
+            data: [totalVolumen],
+            backgroundColor: 'rgba(153, 102, 255, 0.6)'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    } else {
+      // Mostrar volumen por mes
+      const volumenPorMes = meses.map(mes => {
+        return data
+          .filter(d => Number(d.Mes) === mes)
+          .reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
+      });
+
+      chart2 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: meses.map(m => `Mes ${m}`),
+          datasets: [{
+            label: `Volumen Embalsado - ${provinciaSeleccionada} ${anyoSeleccionado || ''}`,
+            data: volumenPorMes,
+            backgroundColor: 'rgba(153, 102, 255, 0.6)'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
     }
-  });
+  }
 }
