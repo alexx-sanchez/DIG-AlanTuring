@@ -116,72 +116,116 @@ function mostrarEmbalsado(data, anyoSeleccionado, mesSeleccionado, provinciaSele
   const ctx = document.getElementById('chart2').getContext('2d');
   if (chart2) chart2.destroy();
 
-  // Agrupar volumen embalsado por mes (si hay varios) o solo mostrar total si un mes específico
   if (mesSeleccionado) {
-    // Mostrar solo el volumen del mes seleccionado
-    const totalVolumen = data.reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
+    // Group data by year for the selected month
+    const volumenPorAño = {};
+    data.forEach(d => {
+      if (Number(d.Mes) === Number(mesSeleccionado)) {
+        const anyo = d.Any;
+        volumenPorAño[anyo] = Number(d.Volum_embassat_hm3 || 0);
+      }
+    });
+
+    const años = Object.keys(volumenPorAño).sort();
+    const volumenes = años.map(a => volumenPorAño[a]);
+
+    if (años.length === 0) {
+      document.getElementById('grafico-2').innerHTML = '<p>No hay datos para el mes seleccionado.</p>';
+      return;
+    }
 
     chart2 = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: [`${provinciaSeleccionada} - ${anyoSeleccionado} - Mes ${mesSeleccionado}`],
+        labels: años,
         datasets: [{
-          label: 'Volumen Embalsado',
-          data: [totalVolumen],
-          backgroundColor: 'rgba(153, 102, 255, 0.6)'
+          label: `Volumen Embalsado - ${provinciaSeleccionada} - Mes ${mesSeleccionado}`,
+          data: volumenes,
+          backgroundColor: 'rgba(153, 102, 255, 0.6)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
         }]
       },
       options: {
         responsive: true,
-        scales: { y: { beginAtZero: true } }
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Volumen Embalsado (hm³)' }
+          },
+          x: {
+            title: { display: true, text: 'Año' }
+          }
+        }
+      }
+    });
+  } else if (anyoSeleccionado) {
+    // Show volume by month for the selected year
+    const meses = [...new Set(data.map(d => Number(d.Mes)))].sort((a, b) => a - b);
+    const volumenPorMes = meses.map(mes => {
+      return data
+        .filter(d => Number(d.Mes) === mes)
+        .reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
+    });
+
+    chart2 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: meses.map(m => `Mes ${m}`),
+        datasets: [{
+          label: `Volumen Embalsado - ${provinciaSeleccionada} ${anyoSeleccionado}`,
+          data: volumenPorMes,
+          backgroundColor: 'rgba(153, 102, 255, 0.6)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Volumen Embalsado (hm³)' }
+          },
+          x: {
+            title: { display: true, text: 'Mes' }
+          }
+        }
       }
     });
   } else {
-    // Mostrar volumen embalsado por mes para el año seleccionado y provincia
-    // Si no hay año seleccionado, mostrar total por año
+    // Show total volume by year
+    const años = [...new Set(data.map(d => Number(d.Any)))].sort((a, b) => a - b);
+    const volumenPorAño = años.map(año => {
+      return data
+        .filter(d => Number(d.Any) === año)
+        .reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
+    });
 
-    const meses = [...new Set(data.map(d => Number(d.Mes)))].sort((a,b) => a-b);
-    if (meses.length === 0) {
-      // Sin meses, sumar total y mostrar solo una barra
-      const totalVolumen = data.reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
-      chart2 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: [`${provinciaSeleccionada} - ${anyoSeleccionado || 'Todos los años'}`],
-          datasets: [{
-            label: 'Volumen Embalsado Total',
-            data: [totalVolumen],
-            backgroundColor: 'rgba(153, 102, 255, 0.6)'
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: true } }
+    chart2 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: años,
+        datasets: [{
+          label: `Volumen Embalsado - ${provinciaSeleccionada}`,
+          data: volumenPorAño,
+          backgroundColor: 'rgba(153, 102, 255, 0.6)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Volumen Embalsado (hm³)' }
+          },
+          x: {
+            title: { display: true, text: 'Año' }
+          }
         }
-      });
-    } else {
-      // Mostrar volumen por mes
-      const volumenPorMes = meses.map(mes => {
-        return data
-          .filter(d => Number(d.Mes) === mes)
-          .reduce((sum, d) => sum + Number(d.Volum_embassat_hm3 || 0), 0);
-      });
-
-      chart2 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: meses.map(m => `Mes ${m}`),
-          datasets: [{
-            label: `Volumen Embalsado - ${provinciaSeleccionada} ${anyoSeleccionado || ''}`,
-            data: volumenPorMes,
-            backgroundColor: 'rgba(153, 102, 255, 0.6)'
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: true } }
-        }
-      });
-    }
+      }
+    });
   }
 }
