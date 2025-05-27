@@ -101,20 +101,6 @@
     font-size: 0.9rem;
   }
   
-  .figure5 {
-      display: flex;
-      flex-direction: column; 
-      align-items: center; 
-      gap: 20px; 
-  }
-  
-  .figure5 .titulo {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--azul-oscuro);
-      text-align: center;
-  }
-  
   .informacion1{
     display: flex;
   }
