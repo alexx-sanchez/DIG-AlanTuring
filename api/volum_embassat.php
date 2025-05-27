@@ -106,5 +106,5 @@ try {
 // Cerrar la conexión
 $db->close();
 
-http://tu-servidor/api/volum_embassat.php?provincia=Girona&any=2023&mes=6
+//http://tu-servidor/api/volum_embassat.php?provincia=Girona&any=2023&mes=6
 ?>
