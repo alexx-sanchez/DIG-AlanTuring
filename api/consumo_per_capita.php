@@ -56,12 +56,10 @@ if ($mes !== '') {
 
 // Consulta para seleccionar las métricas de consumo, con énfasis en per cápita
 $query = "
-    SELECT Any, Mes, Provincia, 
+    SELECT Provincia, 
            Consum_per_capita, 
-           Consum_personal_anual, 
-           Activitats_propies, 
-           Consumo_Anual, 
-           Consumo_mensual 
+           Consum_personal_anual,  
+           Consumo_Anual
     FROM aigua 
     WHERE $where 
     ORDER BY Any, Mes
