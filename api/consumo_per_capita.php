@@ -57,6 +57,7 @@ if ($mes !== '') {
 // Consulta para seleccionar las métricas de consumo, con énfasis en per cápita
 $query = "
     SELECT Provincia, 
+           Any,
            Consum_per_capita, 
            Consum_personal_anual,  
            Consumo_Anual

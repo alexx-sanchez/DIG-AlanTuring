@@ -4,36 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>ODS 6 - Agua Limpia y Saneamiento</title>
+    <script src="js/include.js" defer></script>
+    <script src="js/datos.js" defer></script>
+    <link rel="stylesheet" href="/style/contador.css">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/index.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&family=WDXL+Lubrifont+TC&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div id="header"></div>
-    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; font-family: Arial, sans-serif;">
+    <div
+        style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; font-family: Arial, sans-serif;">
 
         <!-- VIDEO de fondo con opacidad -->
-        <video
-          src="videos/ODS 6_ Agua limpia y saneamiento.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
+        <video src="videos/ODS 6_ Agua limpia y saneamiento.mp4" autoplay muted loop playsinline
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
         </video>
-      
+
         <!-- Contenedor de título y subtítulo arriba -->
-        <div style="font-size: 200%;  position: absolute; top: 20px; width: 100%; text-align: center; z-index: 1; color: white; text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);">
-            <h1 style="font-family: 'Libre Baskerville', sans-serif; font-weight: 500; color: #007BFF; font-size: 2.8em; margin: 0;">ODS 6 - Agua Limpia y Saneamiento</h1>
+        <div
+            style="font-size: 200%;  position: absolute; top: 20px; width: 100%; text-align: center; z-index: 1; color: white; text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);">
+            <h1
+                style="font-family: 'Libre Baskerville', sans-serif; font-weight: 500; color: #007BFF; font-size: 2.8em; margin: 0;">
+                ODS 6 - Agua Limpia y Saneamiento</h1>
         </div>
-      
-      </div>
-         
-               
+
+    </div>
+
+
     <main>
         <section>
             <div id="objetivoODS">
@@ -42,7 +46,8 @@
                     <p>
                         El ODS 6 aspira a garantizar que todo el mundo disponga de agua potable y saneamiento,
                         centrándose en la gestión sostenible de los recursos hídricos, las aguas residuales y
-                        los ecosistemas. También reconoce la importancia de controlstohide=1ar con un entorno propicio para
+                        los ecosistemas. También reconoce la importancia de controlstohide=1ar con un entorno propicio
+                        para
                         lograrlo.
                     </p>
                     <p>
@@ -59,7 +64,8 @@
                 <div class="parrafo2">
                     <h2>💧 Nuestro objetivo</h2>
                     <p>
-                        Informar y concienciar sobre el uso del agua en Cataluña, destacando la importancia de una gestión
+                        Informar y concienciar sobre el uso del agua en Cataluña, destacando la importancia de una
+                        gestión
                         responsable y sostenible de este recurso esencial.
                     </p>
                 </div>
@@ -68,7 +74,8 @@
                 <div class="parrafo1">
                     <h3>🔍 ¿Cómo lo hacemos?</h3>
                     <p>
-                        A través del análisis y la visualización de datos, mostramos de forma clara y comprensible el estado
+                        A través del análisis y la visualización de datos, mostramos de forma clara y comprensible el
+                        estado
                         actual
                         del consumo y almacenamiento de agua en Cataluña.
                         Queremos que cualquier persona, al visitar nuestra web, pueda entender la magnitud del consumo y
@@ -100,10 +107,15 @@
                 </p>
             </div>
 
-            <div id="infoContainer">
-                <h3>Info</h3>
-                <div id="info"></div>
-            </div>
+         <div id="contador-container" class="contador-box">
+  <h2 id="provincia-title" class="contador-titulo"></h2>
+  <div class="contador-datos">
+    <p>Consumo per cápita mensual: <span id="contador-per-capita">0</span> litros</p>
+    <p>Consumo personal anual: <span id="contador-personal-anual">0</span> litros</p>
+    <p>Consumo anual total: <span id="contador-anual-total">0</span> litros</p>
+  </div>
+</div>
+
 
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/6kke9YIohQQ?si=nwusLt4n2FVcaj-U" title="YouTube video player"
@@ -117,13 +129,12 @@
 
     <div id="footer"></div>
 
-    <script src="js/include.js"></script>
-<script src="js/datos.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    cargarConsumPerCapita("Barcelona", 2023, 8); // se llama al cargarse la página
-  });
-</script>
+    
+    <script> 
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarConsumPerCapita(); // se llama al cargarse la página
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,30 @@
+/* contador.css */
+.contador-box {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contador-titulo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contador-datos p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.contador-datos span {
+  font-weight: bold;
+  color: #0077cc;
+}

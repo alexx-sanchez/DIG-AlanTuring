@@ -73,17 +73,17 @@ function cargarEmbalsado({ provincia, anyo, mes }) {
     });
 }
 
-function cargarConsumPerCapita(provincia, any = 2023, mes = 8){
+function cargarConsumPerCapita(provincia = "Barcelona", any = 2023, mes = 8) {
   const params = new URLSearchParams();
-  if (provincia){
+  if (provincia) {
     params.append('provincia', provincia)
-  }else{
-  params.append('provincia', 'Barcelona')
-}
+  } else {
+    params.append('provincia', 'Barcelona')
+  }
   if (any) params.append('any', any);
   if (mes) params.append('mes', mes);
-  
- fetch(`api/consumo_per_capita.php?${params.toString()}`)
+
+  fetch(`api/consumo_per_capita.php?${params.toString()}`)
     .then(res => {
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       return res.json();
@@ -99,7 +99,11 @@ function cargarConsumPerCapita(provincia, any = 2023, mes = 8){
 }
 
 function mostrarConsumPerCapita(data) {
-  const contenedor = document.getElementById('info');
+  const contenedor = document.getElementById('contador-container');
+  const provinciaTitle = document.getElementById('provincia-title');
+  const contadorPerCapita = document.getElementById('contador-per-capita');
+  const contadorPersonalAnual = document.getElementById('contador-personal-anual');
+  const contadorAnualTotal = document.getElementById('contador-anual-total');
 
   if (!Array.isArray(data) || data.length === 0) {
     contenedor.innerHTML = "<p>No se encontraron datos.</p>";
@@ -108,13 +112,47 @@ function mostrarConsumPerCapita(data) {
 
   const info = data[0];
 
-  contenedor.innerHTML = `
-    <h2>Consumo en ${info.Provincia}</h2>
-    <p><strong>Consumo per cápita mensual:</strong> ${info.Consum_per_capita.toLocaleString()} litros</p>
-    <p><strong>Consumo personal anual:</strong> ${info.Consum_personal_anual.toLocaleString()} litros</p>
-    <p><strong>Consumo anual total:</strong> ${info.Consumo_Anual.toLocaleString()} litros</p>
-  `;
+  provinciaTitle.textContent = `${info.Provincia} - ${info.Any}`;
+  contadorPerCapita.textContent = '0';
+  contadorPersonalAnual.textContent = '0';
+  contadorAnualTotal.textContent = '0';
+
+  // Guarda los valores reales para la animación
+  contenedor.dataset.perCapita = info.Consum_per_capita;
+  contenedor.dataset.personalAnual = info.Consum_personal_anual;
+  contenedor.dataset.anualTotal = info.Consumo_Anual;
 }
+function animarContador(element, valorFinal, duracion = 2000) {
+  let start = 0;
+  const increment = valorFinal / (duracion / 30);
+
+  function step() {
+    start += increment;
+    if (start >= valorFinal) {
+      element.textContent = valorFinal.toLocaleString();
+    } else {
+      element.textContent = Math.floor(start).toLocaleString();
+      requestAnimationFrame(step);
+    }
+  }
+  requestAnimationFrame(step);
+}
+function activarAnimacionContadores() {
+  const contenedor = document.getElementById('contador-container');
+  const rect = contenedor.getBoundingClientRect();
+  const ventanaAltura = window.innerHeight || document.documentElement.clientHeight;
+
+  if (rect.top <= ventanaAltura && rect.bottom >= 0 && !contenedor.dataset.animado) {
+    contenedor.dataset.animado = 'true';
+
+    animarContador(document.getElementById('contador-per-capita'), Number(contenedor.dataset.perCapita));
+    animarContador(document.getElementById('contador-personal-anual'), Number(contenedor.dataset.personalAnual));
+    animarContador(document.getElementById('contador-anual-total'), Number(contenedor.dataset.anualTotal));
+  }
+}
+
+window.addEventListener('scroll', activarAnimacionContadores);
+
 
 
 
@@ -252,7 +290,7 @@ function mostrarEmbalsado(data, anyoSeleccionado, mesSeleccionado, provinciaSele
       data: {
         labels: años,
         datasets: [{
-          label: `Volumen Embalsado - ${provinciaSeleccionada}`,
+          label: `Volumen Embalsado + ${provinciaSeleccionada}`,
           data: volumenPorAño,
           backgroundColor: 'rgba(153, 102, 255, 0.6)',
           borderColor: 'rgba(153, 102, 255, 1)',
