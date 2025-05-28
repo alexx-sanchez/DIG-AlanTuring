@@ -124,8 +124,17 @@
 
 #objetivoODS{
   display: flex;
+  margin-bottom: 50px;
 }
 
-p{
+.parrafo1{
   margin-right: 100px;
+}
+
+.parrafo2{
+  margin-left: 100px;
+}
+
+section {
+  margin-top: 50px;
 }

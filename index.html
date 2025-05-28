@@ -11,16 +11,36 @@
 <body>
 
     <div id="header"></div>
+    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; font-family: Arial, sans-serif;">
 
+        <!-- VIDEO de fondo con opacidad -->
+        <video
+          src="videos/ODS 6_ Agua limpia y saneamiento.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
+        </video>
+      
+        <!-- Contenedor de título y subtítulo arriba -->
+        <div style="position: absolute; top: 20px; width: 100%; text-align: center; z-index: 1; color: white; text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);">
+          <h1 style="color: #007BFF; font-size: 2.8em; margin: 0;">ODS 6 - Agua Limpia y Saneamiento</h1>
+          <h2 style="color: #007BFF; font-size: 2em; margin: 5px 0 0 0;">Introducción</h2>
+        </div>
+      
+      </div>
+         
+               
     <main>
         <section>
             <div id="objetivoODS">
-                <div>
+                <div class="parrafo1">
                     <h2>💧 Objetivo de Desarrollo Sostenible 6</h2>
                     <p>
                         El ODS 6 aspira a garantizar que todo el mundo disponga de agua potable y saneamiento,
                         centrándose en la gestión sostenible de los recursos hídricos, las aguas residuales y
-                        los ecosistemas. También reconoce la importancia de contar con un entorno propicio para
+                        los ecosistemas. También reconoce la importancia de controlstohide=1ar con un entorno propicio para
                         lograrlo.
                     </p>
                     <p>
@@ -29,27 +49,35 @@
                         indicadores mundiales para evaluar el progreso.
                     </p>
                 </div>
-                <img src="img/icono1.png" alt="Logo ODS 6" style="width: 300px; height: 300px;">
+                <img src="img/icono1.png" alt="Logo ODS 6" style="width: 200px; height: 200px;">
             </div>
 
-            <div id="objetivoGRUPO">
-                <h2>💧 Nuestro objetivo</h2>
-                <p>
-                    Informar y concienciar sobre el uso del agua en Cataluña, destacando la importancia de una gestión
-                    responsable y sostenible de este recurso esencial.
-                </p>
-
-                <h3>🔍 ¿Cómo lo hacemos?</h3>
-                <p>
-                    A través del análisis y la visualización de datos, mostramos de forma clara y comprensible el estado
-                    actual
-                    del consumo y almacenamiento de agua en Cataluña.
-                    Queremos que cualquier persona, al visitar nuestra web, pueda entender la magnitud del consumo y
-                    cómo
-                    afecta
-                    al entorno.
-                </p>
-
+            <div id="objetivoODS">
+                <img src="img/icono1.png" alt="Logo ODS 6" style="width: 200px; height: 200px;">
+                <div class="parrafo2">
+                    <h2>💧 Nuestro objetivo</h2>
+                    <p>
+                        Informar y concienciar sobre el uso del agua en Cataluña, destacando la importancia de una gestión
+                        responsable y sostenible de este recurso esencial.
+                    </p>
+                </div>
+            </div>
+            <div id="objetivoODS">
+                <div class="parrafo1">
+                    <h3>🔍 ¿Cómo lo hacemos?</h3>
+                    <p>
+                        A través del análisis y la visualización de datos, mostramos de forma clara y comprensible el estado
+                        actual
+                        del consumo y almacenamiento de agua en Cataluña.
+                        Queremos que cualquier persona, al visitar nuestra web, pueda entender la magnitud del consumo y
+                        cómo
+                        afecta
+                        al entorno.
+                    </p>
+                </div>
+                <img src="img/icono1.png" alt="Logo ODS 6" style="width: 200px; height: 200px;">
+            </div>
+            <div>
                 <h3>📊 ¿Qué datos utilizamos?</h3>
                 <ul>
                     <li>💧 <strong>Consumo de agua por provincias y por año:</strong> permite analizar diferencias
