@@ -100,6 +100,11 @@
                 </p>
             </div>
 
+            <div id="infoContainer">
+                <h3>Info</h3>
+                <div id="info"></div>
+            </div>
+
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/6kke9YIohQQ?si=nwusLt4n2FVcaj-U" title="YouTube video player"
                     frameborder="0"
@@ -113,7 +118,12 @@
     <div id="footer"></div>
 
     <script src="js/include.js"></script>
-
+<script src="js/datos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarConsumPerCapita("Barcelona", 2023, 8); // se llama al cargarse la página
+  });
+</script>
 </body>
 
 </html>

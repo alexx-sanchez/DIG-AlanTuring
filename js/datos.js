@@ -75,14 +75,15 @@ function cargarEmbalsado({ provincia, anyo, mes }) {
 
 function cargarConsumPerCapita(provincia, any = 2023, mes = 8){
   const params = new URLSearchParams();
-  if (any) params.append('any', any);
-  if (mes) params.append('mes', mes);
   if (provincia){
     params.append('provincia', provincia)
   }else{
   params.append('provincia', 'Barcelona')
 }
- fetch(`consumo_per_capita.php?${params.toString()}`)
+  if (any) params.append('any', any);
+  if (mes) params.append('mes', mes);
+  
+ fetch(`api/consumo_per_capita.php?${params.toString()}`)
     .then(res => {
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       return res.json();
@@ -93,25 +94,28 @@ function cargarConsumPerCapita(provincia, any = 2023, mes = 8){
     })
     .catch(err => {
       console.error(err);
-      document.getElementById('info').innerHTML = `<p>Error cargando datos: ${err.message}</p>`;
+      document.getElementById('info').innerHTML = `<p>Error cargando los datos: ${err.message}</p>`;
     });
 }
 
 function mostrarConsumPerCapita(data) {
   const contenedor = document.getElementById('info');
 
-  if (!data || typeof data.Consum_per_capita !== 'number') {
-    contenedor.innerHTML = "<p>Datos no válidos.</p>";
+  if (!Array.isArray(data) || data.length === 0) {
+    contenedor.innerHTML = "<p>No se encontraron datos.</p>";
     return;
   }
 
+  const info = data[0];
+
   contenedor.innerHTML = `
-    <h2>Consumo en ${data.Provincia}</h2>
-    <p><strong>Consumo per cápita mensual:</strong> ${data.Consum_per_capita.toLocaleString()} litros</p>
-    <p><strong>Consumo personal anual:</strong> ${data.Consum_personal_anual.toLocaleString()} litros</p>
-    <p><strong>Consumo anual total:</strong> ${data.Consumo_Anual.toLocaleString()} litros</p>
+    <h2>Consumo en ${info.Provincia}</h2>
+    <p><strong>Consumo per cápita mensual:</strong> ${info.Consum_per_capita.toLocaleString()} litros</p>
+    <p><strong>Consumo personal anual:</strong> ${info.Consum_personal_anual.toLocaleString()} litros</p>
+    <p><strong>Consumo anual total:</strong> ${info.Consumo_Anual.toLocaleString()} litros</p>
   `;
 }
+
 
 
 function mostrarConsumo(data, anyoSeleccionado, provinciaSeleccionada) {
