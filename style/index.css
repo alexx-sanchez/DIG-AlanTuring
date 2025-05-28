@@ -62,11 +62,11 @@
   
   main {
     padding: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
     background-color: var(--blanco);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(14, 13, 13, 0.1);
   }
   
   h1 {
