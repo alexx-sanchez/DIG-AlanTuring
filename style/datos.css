@@ -1,145 +1,134 @@
-.contenedor-datos {
-    padding: 10px;
-    max-width: 100%;
-    margin: 0 auto;
-    
+:root {
+  --azul-primario: #0077cc;
+  --azul-oscuro: #005fa3;
+  --azul-claro: #023535;
+  --fondo-claro: whitesmoke;
+  --fondo-formulario: lightblue;
+  --borde-grafico: #aaa;
+  --color-texto: #555;
 }
 
+/* Contenedor Principal */
+.contenedor-datos {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Introducción */
 .intro-datos {
-    display: flex;
-    flex-direction: column;
-    max-width: 55%; /* Más ancho para que no se vea tan apretado */
-    justify-self: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    align-items: center;
-    text-align: center;
-    margin: 40px auto 60px auto; /* Más margen arriba y abajo */
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 3rem auto;
+  text-align: center;
 }
 
 .intro-datos h1 {
-    font-size: 3em; /* Más grande */
-    margin-bottom: 32px; /* Más espacio debajo del título */
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--azul-claro);
 }
 
 .intro-datos p {
-    line-height: 1.9;
-    margin-bottom: 36px;
-    max-width: 100%;
-    font-size: 1.7em; /* Más grande */
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
 }
 
+/* Layout Principal */
 .main-flex {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 70px; /* Más separación entre filtros y gráficos */
-    width: 100%;
-    margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+  
 }
 
+/* Sección Filtros */
 .filtros {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 400px; /* Ancho fijo para centrar y dar espacio a los títulos */
-    padding: 0;
-    float: none;
-    background: none;
-    border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 400px;
 }
 
 .form_estilo {
-    width: 100%;
-    background-color: lightblue;
-    border-radius: 5%;
-    padding: 32px 24px 32px 24px;
-    margin-bottom: 32px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 90px;
+  background-color: var(--fondo-formulario);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-top: 70px;
+    margin-bottom: 0px
+
 }
 
 .filtros h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    word-break: break-word;
-    white-space: normal;
-    font-size: 1.2em;
-    max-width: 100%;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
-
-.filtros form {
-    justify-self: center;
-    gap: 25px;
-}
-
-.filtros label {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.filtros select, .filtros button {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.filtros select {
-    width: 100%;
-    min-width: 220px;
-    box-sizing: border-box;
-    display: block;
-}
-
-.filtros button {
-    background-color: #0077cc;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 150px;
-}
-
-.filtros button:hover {
-    background-color: #005fa3;
-}
-
 
 .form-group {
-    display: flex;
-    flex-direction: row; /* Cambia a fila */
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
-    min-width: 120px; /* Ajusta este valor según el largo de tus etiquetas */
-    text-align: right;
-    margin-right: 10px;
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  color: #222;
 }
 
 .form-group select {
-    flex: 1;
-    min-width: 0;
+  flex: 2;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
+/* Botón */
+.filtros button {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--azul-primario);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.filtros button:hover {
+  background-color: var(--azul-oscuro);
+}
+
+/* Gráficos */
 .graficos {
-    width: 600px;
-    float: none;
-    padding: 0;
+  flex-grow: 1;
+  max-width: 600px;
+}
+
+.graficos h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--azul-claro);
 }
 
 .grafico-placeholder {
-    background-color: #e6e6e6;
-    border: 3px dashed #aaa;
-    padding: 50px;
-    text-align: center;
-    font-style: italic;
-    color: #555;
-    margin-bottom: 40px;
-    border-radius: 12px;
+  background-color: #e6e6e6;
+  border: 2px dashed var(--borde-grafico);
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--color-texto);
 }
