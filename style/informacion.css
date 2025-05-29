@@ -11,8 +11,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--azul-oscuro);
-  color: var(--azul-claro);
+  background-color: #91B1B5;
+color: #023535;
 }
 
 header {
