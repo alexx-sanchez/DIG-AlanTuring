@@ -86,10 +86,11 @@ nav a:hover::after {
 }
 
   main {
+    color: #023535;
     padding: 2rem;
     max-width: 1200px;
     margin: auto;
-    background-color: var(--blanco);
+    background-color: rgb(202, 202, 202);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(14, 13, 13, 0.1);
   }
