@@ -13,14 +13,6 @@
     color: var(--azul-oscuro);
   }
   
-  header {
-    display: flex;
-    align-items: center;
-    background-color: var(--azul-medio);
-    color: var(--blanco);
-    padding: 1.5rem;
-  }
-  
   .logo {
     height: 100px;
     width: 100px;

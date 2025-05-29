@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 nav a:hover::after {
-  transform: scaleX(1); 
+  transform: scaleX(1);
 }
 
 
@@ -124,17 +124,23 @@ main {
 aside {
   display: flex;
   flex-direction: column;
-  width: 250px;       /* Puedes ajustar el ancho como prefieras */
-  height: 100vh;      /* Ocupa toda la altura de la ventana */
+  width: 250px;
+  /* Puedes ajustar el ancho como prefieras */
+  height: 100vh;
+  /* Ocupa toda la altura de la ventana */
 }
 
 aside img {
-  flex-grow: 1;       /* Hace que las imágenes crezcan y ocupen todo el espacio disponible */
-  object-fit: cover;  /* Asegura que la imagen cubra todo el espacio sin deformarse */
+  flex-grow: 1;
+  /* Hace que las imágenes crezcan y ocupen todo el espacio disponible */
+  object-fit: cover;
+  /* Asegura que la imagen cubra todo el espacio sin deformarse */
   opacity: 0.8;
   transition: 0.5s ease;
-  width: 100%;        /* Ocupa todo el ancho del aside */
-  height: 100%;       /* Las imágenes ocupan toda la altura disponible */
+  width: 100%;
+  /* Ocupa todo el ancho del aside */
+  height: 100%;
+  /* Las imágenes ocupan toda la altura disponible */
   margin-bottom: 4px;
   border-radius: 8px;
 }
@@ -142,5 +148,6 @@ aside img {
 aside img:hover {
   opacity: 1;
   filter: contrast(120%);
-  transform: scale(1.1);   /* El efecto de agrandamiento al hacer hover */
+  transform: scale(1.1);
+  /* El efecto de agrandamiento al hacer hover */
 }
