@@ -55,7 +55,7 @@ main section h2 {
 
 /* Body y fondo */
 body {
-    background-color: var(--azul-claro);
+    background-color: var(--azul-oscuro);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;

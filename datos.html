@@ -24,108 +24,110 @@
   </section>
 
   <main class="contenedor-datos">
-    <!-- Filtros -->
-    <section class="filtros">
-      <div class="form_estilo">
-        <h2>Filtrar Consumo (Gráfico 1)</h2>
-        <form id="filtro-consumo">
-          <div class="form-group">
-            <label for="provincia-consumo">Provincia:</label>
-            <select id="provincia-consumo" name="provincia" required>
-              <option value="Barcelona">Barcelona</option>
-              <option value="Girona">Girona</option>
-              <option value="Lleida">Lleida</option>
-              <option value="Tarragona">Tarragona</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="año-consumo">Año:</label>
-            <select id="año-consumo" name="año">
-              <option value="">Todos</option>
-              <option value="2012">2012</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
-          <button type="submit">Aplicar</button>
-        </form>
-      </div>
+    <div class="main-flex">
+      <!-- Filtros -->
+      <section class="filtros">
+        <div class="form_estilo">
+          <h2>Filtrar Consumo (Gráfico 1)</h2>
+          <form id="filtro-consumo">
+            <div class="form-group">
+              <label for="provincia-consumo">Provincia:</label>
+              <select id="provincia-consumo" name="provincia" required>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Girona">Girona</option>
+                <option value="Lleida">Lleida</option>
+                <option value="Tarragona">Tarragona</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="año-consumo">Año:</label>
+              <select id="año-consumo" name="año">
+                <option value="">Todos</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+              </select>
+            </div>
+            <button type="submit">Aplicar</button>
+          </form>
+        </div>
 
-      <div class="form_estilo">
-        <h2>Filtrar Volumen Embalsado (Gráfico 2)</h2>
-        <form id="filtro-embalsado">
-          <div class="form-group">
-            <label for="provincia-embalsado">Provincia:</label>
-            <select id="provincia-embalsado" name="provincia" required>
-              <option value="Barcelona">Barcelona</option>
-              <option value="Girona">Girona</option>
-              <option value="Lleida">Lleida</option>
-              <option value="Tarragona">Tarragona</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="año-embalsado">Año:</label>
-            <select id="año-embalsado" name="año">
-              <option value="">Todos</option>
-              <option value="2012">2012</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="mes-embalsado">Mes:</label>
-            <select id="mes-embalsado" name="mes">
-              <option value="">Todos</option>
-              <option value="1">Enero</option>
-              <option value="2">Febrero</option>
-              <option value="3">Marzo</option>
-              <option value="4">Abril</option>
-              <option value="5">Mayo</option>
-              <option value="6">Junio</option>
-              <option value="7">Julio</option>
-              <option value="8">Agosto</option>
-              <option value="9">Septiembre</option>
-              <option value="10">Octubre</option>
-              <option value="11">Noviembre</option>
-              <option value="12">Diciembre</option>
-            </select>
-          </div>
-          <button type="submit">Aplicar</button>
-        </form>
-      </div>
-    </section>
-    <!-- Visualizaciones -->
-    <section class="graficos">
-      <h2>Visualizaciones</h2>
+        <div class="form_estilo">
+          <h2>Filtrar Volumen Embalsado (Gráfico 2)</h2>
+          <form id="filtro-embalsado">
+            <div class="form-group">
+              <label for="provincia-embalsado">Provincia:</label>
+              <select id="provincia-embalsado" name="provincia" required>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Girona">Girona</option>
+                <option value="Lleida">Lleida</option>
+                <option value="Tarragona">Tarragona</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="año-embalsado">Año:</label>
+              <select id="año-embalsado" name="año">
+                <option value="">Todos</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mes-embalsado">Mes:</label>
+              <select id="mes-embalsado" name="mes">
+                <option value="">Todos</option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </div>
+            <button type="submit">Aplicar</button>
+          </form>
+        </div>
+      </section>
+      <!-- Visualizaciones -->
+      <section class="graficos">
+        <h2>Visualizaciones</h2>
 
-      <div class="grafico-placeholder" id="grafico-1">
-        <canvas id="chart1"></canvas>
-      </div>
+        <div class="grafico-placeholder" id="grafico-1">
+          <canvas id="chart1"></canvas>
+        </div>
 
-      <div class="grafico-placeholder" id="grafico-2">
-        <canvas id="chart2"></canvas>
-      </div>
+        <div class="grafico-placeholder" id="grafico-2">
+          <canvas id="chart2"></canvas>
+        </div>
 
 
-    </section>
+      </section>
+    </div>
   </main>
 
   <div id="footer"></div>
