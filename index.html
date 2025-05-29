@@ -107,14 +107,14 @@
                 </p>
             </div>
 
-         <div id="contador-container" class="contador-box">
-  <h2 id="provincia-title" class="contador-titulo"></h2>
-  <div class="contador-datos">
-    <p>Consumo per cápita mensual: <span id="contador-per-capita">0</span> litros</p>
-    <p>Consumo personal anual: <span id="contador-personal-anual">0</span> litros</p>
-    <p>Consumo anual total: <span id="contador-anual-total">0</span> litros</p>
-  </div>
-</div>
+            <div id="contador-container" class="contador-box">
+                <h2 id="provincia-title" class="contador-titulo"></h2>
+                <div class="contador-datos">
+                    <p>Consumo per cápita mensual: <span id="contador-per-capita">0</span> litros</p>
+                    <p>Consumo personal anual: <span id="contador-personal-anual">0</span> litros</p>
+                    <p>Consumo anual total: <span id="contador-anual-total">0</span> litros</p>
+                </div>
+            </div>
 
 
             <div class="video-container">
@@ -129,12 +129,14 @@
 
     <div id="footer"></div>
 
-    
-    <script> 
+
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             cargarConsumPerCapita(); // se llama al cargarse la página
         });
     </script>
+    <script src="/js/traduccion.js"></script>
+    <div id="google_translate_element" style="display:none"></div>
 </body>
 
 </html>
