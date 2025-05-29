@@ -1,5 +1,3 @@
-
-
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -63,4 +61,80 @@ body {
 
 section {
   margin-top: 50px;
+}
+
+/* Tarjetas y sombras para bloques destacados */
+.contador-box, #objetivoODS {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
+/* Imágenes redondeadas y con sombra */
+#objetivoODS img {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    object-fit: cover;
+    background: #eaf6f6;
+}
+
+/* Títulos destacados y colores consistentes */
+h2, h3 {
+    color: #023535;
+    font-weight: 700;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Listas personalizadas */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+ul li::before {
+    content: "💧";
+    margin-right: 0.5em;
+}
+
+/* Responsive para #objetivoODS */
+#objetivoODS {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+@media (max-width: 700px) {
+    #objetivoODS {
+        flex-direction: column;
+        text-align: center;
+    }
+    #objetivoODS img {
+        margin-bottom: 1em;
+    }
+    .parrafo1, .parrafo2 {
+        margin: 0 !important;
+    }
+}
+
+/* Mejor espaciado general */
+main > section > div, .contador-box, .video-container {
+    margin-bottom: 2.5em;
+}
+
+/* Botón de acción (si tienes alguno) */
+button, .btn {
+    background: #0CABA8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.5em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover, .btn:hover {
+    background: #008F8C;
 }

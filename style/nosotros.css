@@ -76,6 +76,10 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+main, main p, main li {
+    text-align: center;
+}
+
 h1 {
   margin-top: 0;
 }
@@ -231,4 +235,50 @@ p{
 
 .externo {
   font-size: 1.1rem;
+}
+
+/* Tarjeta para el bloque de objetivo ODS */
+#objetivoODS {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 2em 1.5em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+/* Mejora visual para los títulos */
+h2, h3 {
+    color: #023535;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+/* Mejora para los bloques de miembros del equipo */
+.personas article {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.5em 1em;
+    margin-bottom: 1.5em;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.personas article:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive para los bloques principales */
+@media (max-width: 900px) {
+    main {
+        padding: 1em;
+    }
+    #objetivoODS {
+        padding: 1em 0.5em;
+    }
+    .personas {
+        gap: 1em;
+    }
 }

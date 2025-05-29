@@ -79,17 +79,27 @@ h2 {
 }
 
 /* Responsive para el mapa */
-#map {
-    height: 60vh;
-    min-height: 300px;
+#map-container {
     width: 100%;
-    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+}
+
+#map {
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;         /* Más alto */
+    min-height: 400px;    /* También puedes aumentar el mínimo */
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 600px) {
     #map {
-        height: 40vh;
-        min-height: 180px;
+        height: 50vh;     /* Más alto en móvil */
+        min-height: 220px;
     }
     #map-container {
         margin: 0.5em 0;
