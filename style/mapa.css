@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer {
+    margin-top: auto;
+}
 
 body {
   margin: 0;
@@ -50,4 +65,33 @@ body {
 
 section {
   margin-top: 50px;
+}
+
+/* Centrar y colorear el título */
+h2 {
+    text-align: center;
+    color: #023535; /* Usa el mismo color que en las otras páginas */
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+}
+
+/* Responsive para el mapa */
+#map {
+    height: 60vh;
+    min-height: 300px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (max-width: 600px) {
+    #map {
+        height: 40vh;
+        min-height: 180px;
+    }
+    #map-container {
+        margin: 0.5em 0;
+    }
 }

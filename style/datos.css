@@ -8,19 +8,25 @@
 .intro-datos {
     display: flex;
     flex-direction: column;
-    max-width: 45%;
+    max-width: 55%; /* Más ancho para que no se vea tan apretado */
     justify-self: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     align-items: center;
     text-align: center;
-    margin-top: 1%;
+    margin: 40px auto 60px auto; /* Más margen arriba y abajo */
+}
+
+.intro-datos h1 {
+    font-size: 3em; /* Más grande */
+    margin-bottom: 32px; /* Más espacio debajo del título */
 }
 
 .intro-datos p {
-    line-height: 1.8;
-    margin-bottom: 30px;
+    line-height: 1.9;
+    margin-bottom: 36px;
     max-width: 100%;
+    font-size: 1.7em; /* Más grande */
 }
 
 .main-flex {
@@ -81,6 +87,13 @@
     border: 1px solid #ccc;
 }
 
+.filtros select {
+    width: 100%;
+    min-width: 220px;
+    box-sizing: border-box;
+    display: block;
+}
+
 .filtros button {
     background-color: #0077cc;
     color: white;
@@ -97,13 +110,22 @@
 
 .form-group {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Cambia a fila */
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     margin-bottom: 2%;
 }
 
+.form-group label {
+    min-width: 120px; /* Ajusta este valor según el largo de tus etiquetas */
+    text-align: right;
+    margin-right: 10px;
+}
 
+.form-group select {
+    flex: 1;
+    min-width: 0;
+}
 
 .graficos {
     width: 600px;
